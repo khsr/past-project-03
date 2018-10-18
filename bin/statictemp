@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+var minimist = require('minimist');
+var statictemp = require('../index');
+
+var argv = process.argv;
+var args = minimist(argv.slice(2));
+
+//remove empty options
+for (var key in args) {
+  if (!args[key]) {
+    delete args[key];
+  }
+}
+//and positional ones
+delete args['_'];
+
+if (!('dest' in args)) {
+  args.dest = 'www';
+}
+
+statictemp(args);

@@ -1,0 +1,52 @@
+{
+  "name": "statictemp",
+  "version": "0.5.1",
+  "engines": {
+    "node": ">=4"
+  },
+  "description": "The static site generator",
+  "main": "index.js",
+  "bin": {
+    "statictemp": "./bin/statictemp"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "bin",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "colors": "^1.1.0",
+    "event-stream": "^3.3.4",
+    "findup-sync": "^2.0.0",
+    "front-matter": "^2.3.0",
+    "lodash": "^4.17.4",
+    "minimatch": "^3.0.4",
+    "minimist": "^1.1.1",
+    "vinyl": "^2.1.0",
+    "vinyl-fs": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "jshint": "^2.9.5",
+    "mocha": "^5.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "pretest": "npm run prettify && jshint \"lib\" index.js",
+    "clean": "rimraf \"www\"",
+    "prettify": "prettier --write \"{lib/*.js,index.js,bin/statictemp}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khsr/past-project-03.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khsr/past-project-03/issues"
+  },
+  "pre-commit": ["test"]
+}
